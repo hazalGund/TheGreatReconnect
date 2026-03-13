@@ -1,49 +1,201 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>The Great Reconnect</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            text-align: center;
-            padding: 50px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>North East Signal</title>
+  <style>
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      background: #0f1720;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
 
-        h1 {
-            color: #333;
-        }
+    header {
+      background: #111827;
+      padding: 2rem 1rem;
+      border-bottom: 2px solid #374151;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
 
-        p {
-            font-size: 18px;
-        }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
 
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
+    nav a {
+      color: #93c5fd;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
 
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .alert {
+      background: #7f1d1d;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+
+    article {
+      background: #111827;
+      padding: 1.5rem;
+      border-radius: 10px;
+      border: 1px solid #374151;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    article:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      border-bottom: 2px solid #374151;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .tag {
+      background: #1f2937;
+      padding: 0.2rem 0.5rem;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    img.article-img, video.article-video {
+      width: 100%;
+      border-radius: 8px;
+      margin: 0.8rem 0;
+      object-fit: cover;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #9ca3af;
+      border-top: 2px solid #374151;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      nav a {
+        margin: 0.3rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <h1>The Great Reconnect</h1>
-    <p>This is my first simple website.</p>
+<header>
+  <h1>North East Signal</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#updates">Updates</a>
+    <a href="#reports">Reports</a>
+    <a href="#tonho">Tonho from the Future</a>
+  </nav>
+</header>
 
-    <button onclick="sayHello()">Click Me</button>
+<div class="container">
 
-    <script>
-        function sayHello() {
-            alert("Hello! Thanks for visiting my website.");
-        }
-    </script>
+<div class="alert">
+<strong>Network Notice:</strong> Internet connectivity returned across the North East after 12 months offline. Data archives remain incomplete.
+</div>
+
+<section id="updates">
+<h2>Latest Updates</h2>
+
+<article>
+<h3>Signal Restored Across Newcastle Centre</h3>
+<p class="tag">City Update</p>
+<img src="https://via.placeholder.com/800x400.png?text=Newcastle+City+Centre" alt="Newcastle city centre streets" class="article-img" />
+<p>Early this morning, several districts reported partial internet connectivity returning for the first time since the outage began 11 months ago. Connections remain unstable across Newcastle city centre, but residents gathered around reopened network points celebrating the return of communication.</p>
+</article>
+
+<article>
+<h3>Grayson: "Today is the beginning of a new era"</h3>
+<p class="tag">Infrastructure</p>
+<img src="https://via.placeholder.com/800x400.png?text=Servers+Recovered" alt="Technicians working on servers" class="article-img" />
+<p>Technicians working near the Quayside report that several corporate data servers were successfully powered back on. Many files appear corrupted after months without maintenance.</p>
+</article>
+
+<article>
+<h3>Public Transport Slowly Synchronising Again</h3>
+<p class="tag">Transport</p>
+<img src="https://via.placeholder.com/800x400.png?text=Tyne+Transport+Network" alt="Tyne and Wear transport system" class="article-img" />
+<p>Without online systems, most of the Tyne and Wear transport network operated manually for nearly a year. Engineers say digital scheduling may return within weeks if connections stabilise.</p>
+</article>
+
+</section>
+
+<section id="reports">
+<h2>Field Reports</h2>
+
+<article>
+<h3>Graffiti Messages Found Across the City</h3>
+<img src="https://via.placeholder.com/800x400.png?text=Graffiti+Message" alt="Graffiti with the message 'THE SIGNAL NEVER LEFT'" class="article-img" />
+<p>Errorists are everywhere!</p>
+</article>
+
+<article>
+<h3>Community Mesh Networks Discovered</h3>
+<img src="https://via.placeholder.com/800x400.png?text=Community+Mesh+Network" alt="Improvised community wireless network" class="article-img" />
+<p>Small neighbourhood groups reportedly built improvised wireless networks while the internet was down. Some of these networks are still operating independently.</p>
+</article>
+
+</section>
+
+<section id="tonho">
+<h2>Tonho from the Future</h2>
+<article>
+<h3>Hit series is back!</h3>
+<p class="tag">The beloved series from Brazil is back!</p>
+<video class="article-video" controls>
+  <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<p>The actor/director Joao Lazarro is expected to be a Golden Globe nominee this year</p>
+</article>
+</section>
+
+<footer>
+<p>North East Signal Archive • Newcastle Upon Tyne </p>
+</footer>
 
 </body>
 </html>
