@@ -1,111 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>North East Signal</title>
   <style>
-    /* Base Styles */
     body {
       font-family: 'Inter', Arial, sans-serif;
       margin: 0;
-      background: #0a0f1a;
-      color: #f5f5f5;
+      background: #0f1720;
+      color: #e5e7eb;
       line-height: 1.6;
-      position: relative;
-    }
-
-    /* Subtle cinematic vignette */
-    body::after {
-      content: '';
-      position: fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      pointer-events: none;
-      background: radial-gradient(circle at center, rgba(255,255,255,0) 70%, rgba(0,0,0,0.5) 100%);
-      z-index: 0;
     }
 
     header {
-      background: linear-gradient(90deg, #111827 0%, #1e293b 100%);
-      padding: 2rem 1rem;
-      border-bottom: 2px solid #1f2937;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      gap: 0.5rem;
-      position: relative;
-      z-index: 1;
+      padding: 1rem 2rem;
+      background: linear-gradient(90deg, #111827 0%, #1e293b 100%);
+      border-bottom: 2px solid #1f2937;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2rem;
+      font-size: 1.8rem;
+      font-weight: 700;
       letter-spacing: 0.5px;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.8);
     }
 
     nav a {
       color: #3b82f6;
-      margin: 0 1rem;
+      margin-left: 1.2rem;
       text-decoration: none;
       font-weight: 500;
-      transition: all 0.3s;
+      transition: color 0.3s;
     }
 
     nav a:hover {
       color: #60a5fa;
-      text-shadow: 0 0 8px #60a5fa;
+      text-decoration: underline;
     }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem 1rem;
+    .breaking-news {
+      background: #b91c1c;
+      color: #fff;
+      text-align: center;
+      padding: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .main-content {
+      display: flex;
+      max-width: 1100px;
+      margin: 2rem auto;
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+
+    .articles {
+      flex: 3;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
-      position: relative;
-      z-index: 1;
+      gap: 1.5rem;
     }
 
-    .alert {
-      background: #7f1d1d;
-      padding: 1rem 1.5rem;
+    .sidebar {
+      flex: 1;
+      background: #111827;
+      padding: 1rem;
       border-radius: 8px;
-      font-weight: 500;
-      box-shadow: 0 0 10px rgba(127,29,29,0.4);
+      border: 1px solid #1f2937;
+      height: fit-content;
     }
 
-    article {
+    .sidebar h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 0.8rem;
+    }
+
+    .sidebar a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
+
+    .news-card {
       background: #111827;
       padding: 1.5rem;
-      border-radius: 10px;
+      border-radius: 8px;
       border: 1px solid #1f2937;
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    article:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 15px rgba(59,130,246,0.6), 0 8px 20px rgba(0,0,0,0.3);
+    .news-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(59,130,246,0.4);
     }
 
-    h2 {
-      border-bottom: 2px solid #1f2937;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-      font-size: 1.8rem;
-      letter-spacing: 0.5px;
-    }
-
-    h3 {
-      margin-top: 0;
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.3px;
-    }
-
-    .tag {
+    .news-card .tag {
       background: #1f2937;
       padding: 0.2rem 0.5rem;
       border-radius: 5px;
@@ -114,12 +122,26 @@
       margin-bottom: 0.5rem;
     }
 
-    img.article-img, video.article-video {
+    .placeholder-img {
       width: 100%;
-      border-radius: 8px;
-      margin: 0.8rem 0;
-      object-fit: cover;
-      filter: brightness(1.05) contrast(1.1);
+      height: 200px;
+      background: #1f2937;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9ca3af;
+      font-size: 0.9rem;
+      border-radius: 5px;
+      margin: 0.5rem 0;
+    }
+
+    @media (max-width: 900px) {
+      .main-content {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+      }
     }
 
     footer {
@@ -130,19 +152,6 @@
       border-top: 2px solid #1f2937;
       margin-top: 3rem;
       background: linear-gradient(90deg, #111827 0%, #1e293b 100%);
-      position: relative;
-      z-index: 1;
-    }
-
-    @media (max-width: 600px) {
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      nav a {
-        margin: 0.3rem;
-      }
     }
   </style>
 </head>
@@ -154,61 +163,55 @@
     <a href="#">Home</a>
     <a href="#updates">Updates</a>
     <a href="#reports">Reports</a>
-    <a href="tonho.html" target="_blank">Tonho from the Future</a>
+    <a href="tonho.html">Tonho from the Future</a>
   </nav>
 </header>
 
-<div class="container">
-
-<div class="alert">
-<strong>Network Notice:</strong> Internet connectivity returned across the North East after 12 months offline. Data archives remain incomplete.
+<div class="breaking-news">
+  <strong>BREAKING:</strong> Internet partially restored across North East after 12 months offline
 </div>
 
-<section id="updates">
-<h2>Latest Updates</h2>
+<div class="main-content">
+  <div class="articles">
 
-<article>
-<h3>Signal Restored Across Newcastle Centre</h3>
-<p class="tag">City Update</p>
-<img src="https://via.placeholder.com/800x400.png?text=Newcastle+City+Centre" alt="Newcastle city centre streets" class="article-img" />
-<p>Early this morning, several districts reported partial internet connectivity returning for the first time since the outage began 11 months ago. Connections remain unstable across Newcastle city centre, but residents gathered around reopened network points celebrating the return of communication.</p>
-</article>
+    <article class="news-card">
+      <p class="tag">City Update • Mar 13, 2026</p>
+      <h3>Signal Restored Across Newcastle Centre</h3>
+      <div class="placeholder-img">[Image Placeholder]</div>
+      <p>After 12 months offline, internet connections returned partially across Newcastle city centre. Residents are gathering at network points to reconnect.</p>
+      <a href="#">Read More →</a>
+    </article>
 
-<article>
-<h3>Grayson: "Today is the beginning of a new era"</h3>
-<p class="tag">Infrastructure</p>
-<img src="https://via.placeholder.com/800x400.png?text=Servers+Recovered" alt="Technicians working on servers" class="article-img" />
-<p>Technicians working near the Quayside report that several corporate data servers were successfully powered back on. Many files appear corrupted after months without maintenance.</p>
-</article>
+    <article class="news-card">
+      <p class="tag">Infrastructure • Mar 13, 2026</p>
+      <h3>Grayson: "Today is the beginning of a new era"</h3>
+      <div class="placeholder-img">[Image Placeholder]</div>
+      <p>Technicians report that several corporate servers were successfully powered back on. Many files are corrupted after months without maintenance.</p>
+      <a href="#">Read More →</a>
+    </article>
 
-<article>
-<h3>Public Transport Slowly Synchronising Again</h3>
-<p class="tag">Transport</p>
-<img src="https://via.placeholder.com/800x400.png?text=Tyne+Transport+Network" alt="Tyne and Wear transport system" class="article-img" />
-<p>Without online systems, most of the Tyne and Wear transport network operated manually for nearly a year. Engineers say digital scheduling may return within weeks if connections stabilise.</p>
-</article>
+    <article class="news-card">
+      <p class="tag">Transport • Mar 13, 2026</p>
+      <h3>Public Transport Slowly Synchronising Again</h3>
+      <div class="placeholder-img">[Image Placeholder]</div>
+      <p>The Tyne and Wear transport network operated manually for nearly a year. Engineers say digital scheduling may return within weeks.</p>
+      <a href="#">Read More →</a>
+    </article>
 
-</section>
+  </div>
 
-<section id="reports">
-<h2>Field Reports</h2>
-
-<article>
-<h3>Graffiti Messages Found Across the City</h3>
-<img src="https://via.placeholder.com/800x400.png?text=Graffiti+Message" alt="Graffiti with the message 'THE SIGNAL NEVER LEFT'" class="article-img" />
-<p>Errorists are everywhere!</p>
-</article>
-
-<article>
-<h3>Community Mesh Networks Discovered</h3>
-<img src="https://via.placeholder.com/800x400.png?text=Community+Mesh+Network" alt="Improvised community wireless network" class="article-img" />
-<p>Small neighbourhood groups reportedly built improvised wireless networks while the internet was down. Some of these networks are still operating independently.</p>
-</article>
-
-</section>
+  <aside class="sidebar">
+    <h3>Top Stories</h3>
+    <ul>
+      <li><a href="#">Community Mesh Networks Still Running</a></li>
+      <li><a href="#">Graffiti Messages Across City</a></li>
+      <li><a href="#">Tonho from the Future Returns</a></li>
+    </ul>
+  </aside>
+</div>
 
 <footer>
-<p>North East Signal Archive • Newcastle Upon Tyne </p>
+  North East Signal Archive • Newcastle Upon Tyne
 </footer>
 
 </body>
